@@ -10,6 +10,14 @@ public class SelfProblem {
     }
 
 
+    /*
+    target클래스가 나 자신을 넘겨서 사용하는 메서드가 있고, 콜백이나 다른 이유로 넘겨받은쪽에서 target 클래스의 메서드를 호출할때(ex. visitor패턴),
+    이를 wrapper 클래스로 만든다면 기대하는 바와 다르게 동작할 수 있다.
+    즉, wrapper 클래스의 메서드가 호출되지않고 target 클래스가 호출된다..
+    왜냐하면, 참조(target클래스)를 넘겨받은 클래스는 wrapper클래스를 알 길이 없다..
+    그래서 조슈아블로크는 콜백과 어울리지않는다고 함..
+
+     */
     static class WrappedObject implements SomethingWithCallback {
 
         private final SomeService service;
